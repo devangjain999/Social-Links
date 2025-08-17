@@ -1,0 +1,75 @@
+:root{
+  --bg: #050915;
+  --text: #eaeaea;
+  --muted: #dbe8ff;
+  --panel: rgba(255,255,255,.06);
+  --border: rgba(255,255,255,.12);
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:"Poppins",sans-serif;
+  color:#fff;
+  background:var(--bg);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+}
+canvas{
+  position:fixed;inset:0;width:100vw;height:100vh;
+  z-index:0;pointer-events:none;
+}
+
+/* Heading */
+.heading{
+  z-index:1;
+  font-size:2.4rem;font-weight:700;
+  margin:0 12px 10px;
+  background:linear-gradient(90deg,#7ab7ff,#c7f0ff,#7ab7ff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-size:200% auto;
+  animation:shine 6s linear infinite;
+}
+.intro{
+  z-index:1;
+  max-width:680px;margin:0 auto 26px;
+  color:var(--muted);font-size:1.05rem;line-height:1.6;
+  padding:0 14px;
+}
+@keyframes shine{to{background-position:200% center}}
+
+/* Social buttons */
+.links{z-index:1;width:100%;max-width:320px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.btn{
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;color:#fff;
+  padding:12px 16px;border-radius:var(--radius);
+  background:var(--panel);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  font-weight:600;
+  transition:all .3s ease-in-out;
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+}
+.btn i{width:22px;text-align:center;font-size:1.15rem}
+
+/* Gradient on hover only */
+.btn--linkedin:hover  {background:linear-gradient(45deg,#0077B5,#0e5a8a);box-shadow:0 0 18px #0077B5;}
+.btn--github:hover    {background:linear-gradient(45deg,#333,#555,#111);box-shadow:0 0 18px #999;}
+.btn--instagram:hover {background:linear-gradient(45deg,#fdf497,#fd5949,#d6249f,#285AEB);box-shadow:0 0 18px #d6249f;}
+.btn--twitter:hover   {background:linear-gradient(45deg,#1DA1F2,#0d8ddb);box-shadow:0 0 18px #1DA1F2;}
+.btn--facebook:hover  {background:linear-gradient(45deg,#1877F2,#3b5998);box-shadow:0 0 18px #1877F2;}
+.btn--portfolio:hover {background:linear-gradient(45deg,#b993d6,#8ca6db);box-shadow:0 0 18px #b993d6;}
+.btn--resume:hover    {background:linear-gradient(45deg,#FF5722,#FF7043);box-shadow:0 0 18px #FF5722;}
+.btn:hover{transform:translateY(-3px) scale(1.03)}
+
+@media (max-width:600px){
+  .heading{font-size:2rem}
+  .intro{font-size:.98rem}
+  .links{max-width:92vw}
+}
+@media (prefers-reduced-motion:reduce){.heading{animation:none}}
